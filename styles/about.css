@@ -5,6 +5,19 @@ html {
 body {
     margin: 0 auto;
 }
-img {
+#NavHeader {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+#HeadImg {
+    text-align: center;
     width: 225px;
+}
+#OwnerName {
+    font-weight: bold
+}
+li {
+    text-align: match-parent;
 }
