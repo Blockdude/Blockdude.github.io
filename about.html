@@ -3,11 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>About</title>
+        <link href="styles/default.css" rel="stylesheet" type="text/css">
         <link href="styles/about.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <p id="NavHeader"> <a href="index.html">Home</a> <a href="interests.html">Interests</a> <a href="https://github.com/Blockdude/blockdude.github.io">GitHub of this page!</a> <a href="about.html">About</a> </p>
-
+        <div class="NavigationHeader">
+            <button class="NavigationHeaderButton" onclick="location.href='index.html'">Home</button>
+            <button class="NavigationHeaderButton" onClick="location.href='interests.html'">Interests</button>
+            <button class="NavigationHeaderButton" onClick="location.href='https://github.com/Blockdude/blockdude.github.io'">GitHub of this page!</button>
+            <button class="NavigationHeaderButton" onClick="location.href='about.html'">About</button>
+        </div>
+        
         <img id="HeadImg" src="images/FirstTime.jpg" alt="Jeb Bush">
         <!--<p>Yup, that's me. You're probably wondering how I ended up in this situation.<br>
             Well it all started back in 2012, when I began considering to run for president...</p>

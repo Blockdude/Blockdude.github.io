@@ -1,24 +1,20 @@
-html {
-    background-color: rgb(155, 155, 155);
-}
-
-body {
-    margin: 0 auto;
-}
-#NavHeader {
+.NavigationHeader {
     text-align: center;
+    border: 5px solid #0b0;
+    background-color: #777;
+    flex-direction: column;
+    padding: 20px 20px;
 }
-h1 {
+.NavigationHeaderButton{
     text-align: center;
+    color: #000;
+    border: 2px solid #fff;
+    background-color: #0000;
+    padding: 0 30px;
 }
-p {
-    text-align: center;
+.NavigationHeaderButton:hover{
+    color: #fff;
 }
-#imgPlane {
-    width: 750px;
-    display: block;
-    margin: 0 auto;
-}
-#somehow {
-    font-size: 8px;
+.NavigationHeaderButton:active{
+    color: #0f0;
 }

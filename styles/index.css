@@ -11,13 +11,14 @@ body {
 h1 {
     text-align: center;
 }
-#HeadImg {
+p {
     text-align: center;
-    width: 225px;
 }
-#OwnerName {
-    font-weight: bold
+#imgPlane {
+    width: 750px;
+    display: block;
+    margin: 0 auto;
 }
-li {
-    text-align: match-parent;
+#somehow {
+    font-size: 8px;
 }
