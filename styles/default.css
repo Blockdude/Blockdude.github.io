@@ -1,7 +1,7 @@
 .NavigationHeader {
     text-align: center;
-    border: 5px solid #0b0;
-    background-color: #777;
+    border-bottom: 5px solid #000;
+    background: linear-gradient(0deg,#060,#0b0);
     flex-direction: column;
     padding: 20px 20px;
 }
@@ -9,7 +9,7 @@
     text-align: center;
     color: #000;
     border: 2px solid #fff;
-    background-color: #0000;
+    background-color: #9b9b9bb7;
     padding: 5px 30px;
 }
 .NavigationHeaderButton:hover{
@@ -20,4 +20,13 @@
 }
 .Article{
     margin: 20px 5%;
+}
+body {
+    margin: 0 auto;
+}
+h1 {
+    text-align: center;
+}
+p {
+    text-align: center;
 }

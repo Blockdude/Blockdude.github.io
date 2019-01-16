@@ -2,18 +2,6 @@ html {
     background-color: rgb(155, 155, 155);
 }
 
-body {
-    margin: 0 auto;
-}
-#NavHeader {
-    text-align: center;
-}
-h1 {
-    text-align: center;
-}
-p {
-    text-align: center;
-}
 #imgPlane {
     width: 750px;
     display: block;
