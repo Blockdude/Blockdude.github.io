@@ -1,0 +1,17 @@
+html {
+    background-color: #222;
+}
+h1 {
+    color: #ddd;
+}
+h2 {
+    color: #ddd;
+}
+p {
+    color: #ddd;
+}
+figure {
+    display: block;
+    max-width: 80vw;
+    margin: auto;
+}

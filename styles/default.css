@@ -27,6 +27,12 @@
 .Article{
     margin: 20px 5%;
 }
+.subcaption{
+    font-size: 10px;
+}
+.footer{
+    font-size: 12px;
+}
 body {
     margin: 0 auto;
 }
@@ -35,4 +41,23 @@ h1 {
 }
 p {
     text-align: center;
+}
+img {
+    display: block;
+    margin: auto;
+}
+figure {
+    display: block;
+    margin: auto;
+    overflow: hidden;
+}
+figcaption {
+    background-color: #222;
+    max-width: 100%;
+    min-height: 10px;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+    margin: auto auto;
 }

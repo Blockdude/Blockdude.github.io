@@ -1,0 +1,15 @@
+html {
+    background-color: rgb(155, 155, 155);
+}
+img {
+    display: block;
+    max-width: 40vw;
+    max-height: 80vw;
+    margin: auto;
+}
+figure {
+    display: block;
+    max-width: 40vw;
+    max-height: 80vh;
+    margin: 0 auto;
+}
