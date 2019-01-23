@@ -1,15 +1,41 @@
 html {
     background-color: rgb(155, 155, 155);
 }
+p {
+    text-align: left;
+}
 img {
     display: block;
-    max-width: 40vw;
-    max-height: 80vw;
+    max-width: 20vw;
+    max-height: 40vw;
     margin: auto;
 }
 figure {
     display: block;
-    max-width: 40vw;
-    max-height: 80vh;
+    max-width: 20vw;
+    max-height: 40vh;
     margin: 0 auto;
+}
+#sstv{
+    height: 75vh;
+    width: 93.75vh;
+    max-height: 256px;
+    max-width: 320px;
+}
+#encodedScottie1{
+    display: block;
+    margin: 0 auto;
+    width: inherit;
+}
+#ArticleCenterSlim{ /*default comes from this*/
+    max-width: 40vw;
+    margin: auto auto;
+    margin-top: 64px;
+    margin-bottom: 64px;
+    background-color: #ccc;
+    border-style: solid;
+    border-color: #161;
+    border-width: 1vw;
+    border-radius: 2vw;
+    padding: 0.5vw;
 }

@@ -24,8 +24,17 @@
 .NavigationHeaderButton:active{
     color: #0f0;
 }
-.Article{
-    margin: 20px 5%;
+.ArticleCenterSlim{
+    max-width: 40vw;
+    margin: auto auto;
+    margin-top: 64px;
+    margin-bottom: 64px;
+    background-color: inherit;
+    border-style: solid;
+    border-color: #161;
+    border-width: 1vw;
+    border-radius: 2vw;
+    padding: 0.5vw;
 }
 .subcaption{
     font-size: 10px;

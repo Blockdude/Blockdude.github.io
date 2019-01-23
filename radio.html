@@ -17,42 +17,73 @@
             <button class="NavigationHeaderButton" onClick="location.href='https://github.com/Blockdude/blockdude.github.io'">GitHub of this page!</button>
             <button class="NavigationHeaderButton" onClick="location.href='about.html'">About</button>
         </div>
-        <h1>Radios</h1>
-        <figure>
+        <div id="ArticleCenterSlim">
+            <h1>Radios</h1>
+            <figure>
+                <picture>
+                    <source srcset="images/FT-411E.jpg" media="(min-width:512px)">
+                    <source srcset="images/FT-411E-medium.jpg" media="(min-width:256px)">
+                    <img id="pictures" src="images/FT-411E-small.jpg" alt="FT-411E">
+                </picture>
+                <figcaption>The FT-411E is one of the radios I own. (And my personal favorite so far)</figcaption>
+            </figure>
+            <p>
+                I have a few hobbies, but as of late I have really been sinking time into HAM radios.
+                For those of you who don't know, HAM radios (as opposed to normal radios) are just radios
+                which operate on a frequency which HAM operators are lisenced to use.<br>
+            </p>
+            <p>
+                There is a saying among HAMs which is what HAM means. It is actually an acryonym, and
+                most HAMs agree that it stands for "Had Alot of Money." This is because HAM radios are
+                expensive, really expenseive, in fact, they are too expensive. A good radio rig will run
+                for about anywhere from $200.00 to the nice and capable rigs around $2,000.00
+            </p>
+            <p>
+                Something that has fascinated me for a long time is the conversion of various things,
+                such as images or text, into audio formats. Naturally when I found out that a local
+                repeater runs an hour long meet using this method to give eachother images, I jumped
+                on the software to decode them. Now there are many different formats to encode with,
+                but the most common on this repeater is <b>Scottie 1</b>. Below is an image I encoded
+                using Scottie 1:<br>
+                <audio controls id="encodedScottie1">
+                    <source src="medias/HelloScottie_Quiet.ogg" type="audio/ogg">
+                    Your browser does not support Vorbis Ogg audio.
+                </audio>
+            </p>
+            <p>
+                Of course with real world factors, you pick up radiation and static interferience
+                when the image is sent across the air, and images end up looking a little something
+                like this, on a good day:<br>
+                <img id="sstv" src="images/scottie1example.jpg" alt="An image with sparatic discolorations">
+            </p>
+            <p>
+                It should be noted, however, that this image was artifically polluted by noise, real world noise
+                in an image is not this kind to images, especially at a distance.<br><br>
+            </p>
+            <p>
+                A part of radios which could be considered class is the morse code. Nothing but a bunch
+                of dits and dahs to represent an entire train of thought or converstation.
+                I want to learn how to use CW (the mode used for morse code) but first I need to 
+                actually learn morse code and then get a radio which can use this mode, such as the
+                FT-757GX below.
+            </p>
+            <figure>
+                <picture>
+                    <source srcset="images/FT-757GX.jpg" media="(min-width:512px)">
+                    <source srcset="images/FT-757GX-medium.jpg" media="(min-width:256px)">
+                    <img id="pictures" src="images/FT-757GX-small.jpg" alt="FT-757GX">
+                </picture>
+                <figcaption>The FT-757GX, A High-Frequency radio I am planning to buy.</figcaption>
+            </figure>
+            <p>
+                <br><br>And by the way, AM and FM are <b>not</b> frequencies, they are modes of transmission.
+                Now you can go impress everyone! Or sound like a jerk by correcting them.
+            </p>
             <picture>
-                <source srcset="images/FT-411E.jpg" media="(min-width:1024px)">
-                <source srcset="images/FT-411E-medium.jpg" media="(min-width:512px)">
-                <img id="pictures" src="images/FT-411E-small.jpg" alt="FT-411E">
+                <source srcset="images/TheMoreYouKnow.png" media="(min-width:512px)">
+                <source srcset="images/TheMoreYouKnow-256.png" media="(min-width:256px)">
+                <img id="pictures" alt="The more you know.">
             </picture>
-            <figcaption>This FT-411E is one of the radios I own (Not this exact one).</figcaption>
-        </figure>
-        <p>
-            I have a few hobbies, but as of late I have really been sinking time into HAM radios.
-            For those of you who don't know, HAM radios (as opposed to normal radios) are just radios
-            which operate on a frequency which HAM operators are lisenced to use.<br>
-        </p>
-        <p>
-            There is a saying among HAMs which is what HAM means. It is actually an acryonym, and
-            most HAMs agree that it stands for "Had Alot of Money." This is because HAM radios are
-            expensive, really expenseive, in fact, they are too expensive. A good radio rig will run
-            for about anywhere from $200.00 to the nice and capable rigs around $2,000.00
-        </p>
-        <figure>
-            <picture>
-                <source srcset="images/FT-757GX.jpg" media="(min-width:1024px)">
-                <source srcset="images/FT-757GX-medium.jpg" media="(min-width:512px)">
-                <img id="pictures" src="images/FT-757GX-small.jpg" alt="FT-757GX">
-            </picture>
-            <figcaption>A High-Frequency (FT-757GX) radio I am planning to buy.</figcaption>
-        </figure>
-        <p>
-            <br><br>By the way, AM and FM are <b>not</b> frequencies, they are modes of transmission.
-            Please don't make the same mistake that <i>everyone</i> else makes.
-        </p>
-        <picture>
-            <source srcset="images/TheMoreYouKnow.png" media="(min-width:1024px)">
-            <source srcset="images/TheMoreYouKnow-256.png" media="(min-width:512px)">
-            <img id="pictures" alt="The more you know.">
-        </picture>
+        </div>
     </body>
 </html>
