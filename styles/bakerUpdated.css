@@ -1,0 +1,46 @@
+html {
+    background-color: #070707;
+    background-image: linear-gradient(#070707,#242424);
+}
+h1 {
+    color: #ddd;
+}
+h2 {
+    color: #ddd;
+}
+h3 {
+    text-align: center;
+}
+p {
+    color: #ddd;
+}
+a{
+    color:inherit;
+}
+figure {
+    display: block;
+    max-width: 80vw;
+    margin: auto;
+}
+.ArticleCenterSlim{
+    background-color: #222;
+}
+#TableOfContents{
+    color: #ddd;
+    text-align: left;
+    display: table;
+    max-width: 20vw;
+    margin: auto auto;
+    margin-top: 64px;
+    margin-bottom: 64px;
+    background-color: #777;
+    border-style: solid;
+    border-color: #000;
+    border-width: 0.4vw;
+    border-radius: 0.4vw;
+    padding: 0.5vw;
+}
+#BakerPhoto{
+    max-width: 80%;
+    min-width: 50%;
+}
