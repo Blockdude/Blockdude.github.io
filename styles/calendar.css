@@ -1,0 +1,31 @@
+html {
+    background-color: rgb(155, 155, 155);
+}
+
+table{
+    margin: auto;
+    width: 80vw;
+    height: 50vw;
+    padding: 0 0;
+}
+td{
+    width: 11.4289vw; /*80/7*/
+    height: 10vw; /*50/5*/
+    vertical-align: top;
+    text-align: left;
+    border-style: solid;
+    border-radius: 5%;
+    background-color: #ddd;
+}
+.TableLabel{
+    height: 24px;
+    font-size: 24px;
+    text-align: center;
+    border-style: none;
+    background-color: #fff0;
+}
+.OtherMonthsDay{
+    color: #0008;
+    border-color: #0008;
+    background-color: #ddd8;
+}
