@@ -6,18 +6,17 @@
         <title>About</title>
         <link href="styles/default.css" rel="stylesheet" type="text/css">
         <link href="styles/about.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     </head>
     <body>
-        <div class="NavigationHeader">
-            <button class="NavigationHeaderButton" onclick="location.href='index.html'">Home</button>
-            <button class="NavigationHeaderButton" onClick="location.href='interests.html'">Interests</button>
-            <button class="NavigationHeaderButton" onClick="location.href='radio.html'">Radio</button>
-            <button class="NavigationHeaderButton" onClick="location.href='bakerUpdated.html'">Miss Baker</button>
-            <button class="NavigationHeaderButton" onClick="location.href='baker.html'">Miss Baker (Old)</button>
-            <button class="NavigationHeaderButton" onClick="location.href='calendar.html'">January Calendar</button>
-            <button class="NavigationHeaderButton" onClick="location.href='https://github.com/Blockdude/blockdude.github.io'">GitHub of this page!</button>
-            <button class="NavigationHeaderButton" onClick="location.href='about.html'">About</button>
-        </div>
+        <nav class="NavigationHeader">
+            <script>
+                $(function(){
+                    $(".NavigationHeader").load("navbar.html");
+                });
+            </script>
+            Javascript Not Supported On This Browser.<br>Or there was a failure getting the nav-bar.
+        </nav>
         
         <img id="HeadImg" src="images/FirstTime.jpg" alt="Jeb Bush">
         <!--<p>Yup, that's me. You're probably wondering how I ended up in this situation.<br>

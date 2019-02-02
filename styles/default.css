@@ -5,24 +5,80 @@
     flex-direction: column;
     padding: 20px 20px;
 }
-.NavigationIcon{
-    height: 20px;
-    vertical-align: center;
-    float: left;
-    margin: auto auto;
+#NavDiv{
+    position: static;
+    max-height: 30px;
+    margin: 0px 0px;
 }
-.NavigationHeaderButton{
+#NavLogoDiv{
+    position: absolute;
+    top: 20px; /*Nav Header top padding*/
+    left: 20px; /*Nav Header left padding*/
+    max-height: 30px;
+}
+#NavLogo{
+    height: 30px;
+}
+#NavList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: center;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    height: 30px;
+    line-height: calc(2em - 4px);
+}
+#NavList>li{
+    margin: 0px 0px;
+    padding: 0px 2px;
+}
+#NavList>li>a, .Dropdown-List>li>a{ /*Formerly .NavigationHeaderButton*/
+    font-family: "Tahoma", Tahoma, serif;
+    font-size: 13px;
     text-align: center;
     color: #000;
     border: 2px solid #fff;
     background-color: #9b9b9bb7;
     padding: 5px 30px;
+    text-decoration: none;
+    transition: 0.3s;
+    transition-timing-function: ease;
 }
-.NavigationHeaderButton:hover{
+#NavList>li>a:hover, .Dropdown-List>li>a:hover{
     color: #fff;
+    background-color: #006000b7;
+    border-color: #000;
 }
-.NavigationHeaderButton:active{
+#NavList>li>a:active, .Dropdown-List>li>a:active{
     color: #0f0;
+}
+.Dropdown{
+    position: relative;
+    display: inline-block;
+}
+.Dropdown-List{
+    text-align: left;
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    padding: 5px 5px;
+    margin: 0px 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #060c;
+    /*max-width: 100%; /*Don't exceed button width*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /*Shadow around dropdown*/
+    border-radius: 0px 10px 10px 10px;
+    border: 3px solid #000;
+    z-index: 1;
+}
+.Dropdown-List>li{
+    padding: 4px 0px;
+}
+.Dropdown:hover .Dropdown-List {
+    display: block;
 }
 .ArticleCenterSlim{
     max-width: 40vw;
