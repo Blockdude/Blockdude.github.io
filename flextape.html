@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="images/Block_32.png"/>
+        <title>You have landed!</title>
+        <link href="styles/default.css" rel="stylesheet" type="text/css">
+        <link href="styles/flextape.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+    <body>
+        <nav class="NavigationHeader">
+            <script>
+                $(function(){
+                    $(".NavigationHeader").load("navbar.html");
+                });
+            </script>
+            Javascript Not Supported On This Browser.<br>Or there was a failure getting the nav-bar.
+        </nav>
+
+        <picture class="Background">
+            <source srcset="images/Hornet.jpg" media="(min-height:1080px) and (min-width:1920px)">
+            <source srcset="images/Hornet_1024.jpg" media="(min-height:576px) and (min-width:1024px)">
+            <source srcset="images/Hornet_512.jpg" media="(min-height:288px) and (min-width:512px)">
+            <img src="images/Hornet_256.jpg">
+        </picture>
+
+        <div class="ArticleCenterWide">
+            <div class="Flex-Horiz" id="WeirdFlexboxButOkay">
+                <div id="Header">
+                    <h1>The F/A-18 Hornet</h1>
+                </div>
+                <div id="Nav">
+                    Some Navbar will go here.
+                </div>
+                <div id="MainContent">
+                    <h2 id="History">History of F/A-18</h2>
+                        <p>
+                            The F/A-18A was first flown on the 18th of November in 1978.
+                        </p>
+                    <h2 id="Radar">Radar</h2>
+                        <P>The F/A-18A/B variants were equipt with the
+                            <a href="https://en.wikipedia.org/wiki/AN/APG-65">AN/APG-65</a> radar.</P>
+                        <p>The F/A-18C/D variant's radars were replaced and the C/Ds were given the
+                            <a href="https://en.wikipedia.org/wiki/AN/APG-73">AN/APG-73</a>. This same
+                            radar is present in proceeding variants of the F/A-18.</p>
+                    <h2 id="Cockpit">Cockpit</h2>
+                    <h2 id="Controls">Controls</h2>
+                        <p>Every other Hornet variant (B,D and F) are dual-seat aircraft with the
+                            pilot up front and a pilot filling a <abbr title="Weapon Systems Officer">WSO</abbr>
+                            role directly behind them.</p>
+                    <h2 id="Engines">Engines</h2>
+                        <p>The F/A-18 Hornet has two twin
+                            <a href="https://en.wikipedia.org/wiki/General_Electric_F404">General Electric F404</a>
+                            afterburning <a href="https://en.wikipedia.org/wiki/Turbofan">turbofan</a>
+                            engines.</p>
+                </div>
+                <div id="Side">
+                    <ul class="ScrollContent">
+                        <li><a href="#History">History</a></li>
+                        <li><a href="#Radar">Radar</a></li>
+                        <li><a href="#Cockpit">Cockpit</a></li>
+                        <li><a href="#Controls">Controls</a></li>
+                        <li><a href="#Engines">Engines</a></li>
+                    </ul>
+                </div>
+                <div id="Footer">
+                    <small>Background photo from
+                        <a href="https://www.digitalcombatsimulator.com/">Eagle Dynamics</a>
+                        using their simulator DCS.
+                    </small>
+                    <br>
+                    <small>Data on the Hornet comes from my personal knowledge and sections of the
+                        <a href="https://www.navy.mil/navydata/fact_display.asp?cid=1100&tid=1200&ct=1">U.S. Navy's Fact File</a>
+                        .
+                    </small>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,3 +1,7 @@
+/*Default CSS*/
+
+/*Navigation IDs and Classes*/
+
 .NavigationHeader {
     text-align: center;
     border-bottom: 5px solid #000;
@@ -7,14 +11,14 @@
 }
 #NavDiv{
     position: static;
-    max-height: 30px;
+    /*max-height: 30px;*/
     margin: 0px 0px;
 }
 #NavLogoDiv{
     position: absolute;
     top: 20px; /*Nav Header top padding*/
     left: 20px; /*Nav Header left padding*/
-    max-height: 30px;
+    /*max-height: 30px;*/
 }
 #NavLogo{
     height: 30px;
@@ -27,7 +31,7 @@
     justify-content: center;
     margin: 0px 0px;
     padding: 0px 0px;
-    height: 30px;
+    min-height: 30px;
     line-height: calc(2em - 4px);
 }
 #NavList>li{
@@ -68,8 +72,6 @@
     overflow: hidden;
     white-space: nowrap;
     background-color: #060c;
-    /*max-width: 100%; /*Don't exceed button width*/
-    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /*Shadow around dropdown*/
     border-radius: 0px 10px 10px 10px;
     border: 3px solid #000;
     z-index: 1;
@@ -80,7 +82,10 @@
 .Dropdown:hover .Dropdown-List {
     display: block;
 }
-.ArticleCenterSlim{
+
+/*Some themed classes for coherent styling*/
+
+.ArticleCenterSlim, .ArticleCenterWide{
     max-width: 40vw;
     margin: auto auto;
     margin-top: 64px;
@@ -92,19 +97,44 @@
     border-radius: 2vw;
     padding: 0.5vw;
 }
+.ArticleCenterWide{
+    max-width: 80vw;
+}
+.Flex-Horiz{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.Flex-Horiz>*{
+    margin: 2% 2%;
+}
+.ScrollContent{ /*Content which sticks with user screen*/
+    position: sticky;
+    top: 0px;
+}
+.Background, .Background *{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -511;
+    min-height: 100vh;
+    min-width: 100vw;
+    height: 100vh;
+    width: 100vw;
+}
 .subcaption{
     font-size: 10px;
 }
 .footer{
     font-size: 12px;
 }
+
+/*Basic Differences for tags*/
+
 body {
     margin: 0 auto;
 }
 h1 {
-    text-align: center;
-}
-p {
     text-align: center;
 }
 img {

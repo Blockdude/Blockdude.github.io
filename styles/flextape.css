@@ -1,0 +1,44 @@
+html{
+    background-color: skyblue;
+    /*background-image: url("../imawges/Hornet.jpg"); /*New method employed on this page so we can ignore*/
+    background-size: cover;
+}
+.ArticleCenterWide{
+    background-color: rgba(135,206,235,.4);
+    background-image: none;
+}
+a{
+    color: inherit;
+}
+
+#WeirdFlexboxButOkay{
+    flex-wrap: wrap;
+    min-width: 300px;
+    width: 100%;
+}
+#WeirdFlexboxButOkay>*{
+    min-width: 100px;
+    max-width: 100%;
+    margin: 0px 0px;
+}
+#Header{
+    width: 100%;
+}
+#Nav{
+    width: 100%;
+}
+#MainContent{
+    width: 70%;
+}
+#Side{
+    width: 30%;
+}
+#Side>*>li>a{
+    text-decoration: none;
+}
+#Footer{
+    width: 100%;
+    margin: 50px 0px 0px 0px;
+    border-top: 5px solid #0007;
+    text-align: center;
+}
