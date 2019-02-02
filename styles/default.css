@@ -62,6 +62,11 @@
     position: relative;
     display: inline-block;
 }
+@media (pointer:coarse) {
+    .Dropdown>a{
+        pointer-events: none; /*Dropdown button iteslf won't work as user has to click it to drop down*/
+    }
+}
 .Dropdown-List{
     text-align: left;
     display: none;
