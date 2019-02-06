@@ -22,6 +22,7 @@
 }
 #NavLogo{
     height: 30px;
+    border: none;
 }
 #NavList{
     display: flex;
@@ -63,7 +64,7 @@
     display: inline-block;
 }
 .Dropdown>a{
-touch-action: none;
+    touch-action: none;
 }
 .Dropdown-List{
     text-align: left;
@@ -122,8 +123,7 @@ touch-action: none;
     z-index: -511;
     min-height: 100vh;
     min-width: 100vw;
-    height: 100vh;
-    width: 100vw;
+    border: none;
 }
 .subcaption{
     font-size: 10px;
