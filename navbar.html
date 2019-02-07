@@ -1,10 +1,21 @@
 <div id="NavDiv">
+    <script>
+        $(function(){
+            console.log("Running dropdown script");
+            if(!('ontouchstart' in document.documentElement)){
+                var dropbuttons = document.getElementsByClassName("Dropdown-Button");
+                for(var i = 0; i<dropbuttons.length; i++){
+                    dropbuttons[i].href = dropbuttons[i].getAttribute("hoverhref");
+                };
+            };
+        });
+    </script>
     <ul id="NavList">
         <li><a href="index.html">Home</a></li>
         <li><a href="interests.html">Interests</a></li>
         <li><a href="radio.html">Radio</a></li>
         <li class="Dropdown">
-            <a href="directory.html">Directory</a>
+            <a class="Dropdown-Button" hoverhref="directory.html">Directory</a>
             <ul class="Dropdown-List">
                 <li><a href="baker.html">Miss Baker</a></li>
                 <li><a href="bakerUpdated.html">Miss Baker (Updated)</a></li>
