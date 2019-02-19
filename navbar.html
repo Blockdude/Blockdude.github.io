@@ -3,9 +3,9 @@
         $(function(){
             console.log("Running dropdown script");
             if(!('ontouchstart' in document.documentElement)){
-                var dropbuttons = document.getElementsByClassName("Dropdown-Button");
-                for(var i = 0; i<dropbuttons.length; i++){
-                    dropbuttons[i].href = dropbuttons[i].getAttribute("hoverhref");
+                let dropbuttons = document.getElementsByClassName("Dropdown-Button");
+                for(let i = 0; i<dropbuttons.length; i++){ 
+                    dropbuttons[i].setAttribute("href",dropbuttons[i].getAttribute("hoverhref"));
                 };
             };
         });
@@ -24,7 +24,9 @@
                 <li><a href="flextape.html">F/A-18 Info (Flexbox)</a></li>
             </ul>
         </li>
+		<li><a href="HalfTheUniverseIsGone.html">My USB stick with my js code died today!</a></li>
         <li><a href="https://github.com/Blockdude/blockdude.github.io">Github of this site!</a></li>
+		<li><a href="/"> JavaScript 30 Github</a></li>
         <li><a href="about.html">About</a></li>
     </ul>
 </div>
