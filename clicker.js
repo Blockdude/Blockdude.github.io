@@ -9,13 +9,11 @@ for(let i=0;i<specialElements.length;i++){
 raveAudio.setAttribute("volume",0);
 raveAudio.volume = 0;
 
-
 $(window).bind("pageshow", function(event) {
     if (event.originalEvent.persisted) {
         window.location.reload(); 
     }
 }); // Reloads page and cleans up last game's click buttons
-
 
 playspace.appendChild(clickerTarget);
 clickerTarget.appendChild(document.createTextNode("Click!"));
@@ -54,7 +52,6 @@ function processClick(){
 }
 
 function clickReal(){
-	raveAudio.play();
     processClick();
 	unprocessedClicks+=1;
 	setTimeout(function(){
@@ -66,8 +63,17 @@ function clickReal(){
 			for(let i=0;i<specialElements.length;i++){
 				specialElements[i].style.visibility = "hidden";
 			}
+			raveAudio.setAttribute("volume",0);
+			raveAudio.volume = 0;
 		}else{
 			if(clicks >= 256 && unprocessedClicks>1){
+				raveAudio.play();
+				if(parseFloat(raveAudio.getAttribute("volume"))<1 && clicks >= 256 && unprocessedClicks>1){
+					let vol = parseFloat(raveAudio.getAttribute("volume"))+0.005;
+					raveAudio.setAttribute("volume",vol);
+					raveAudio.volume = vol;
+					//console.log("Vol = "+vol);
+				}
 				if((new Date().getTime()%960)>480){
 					scorePara.style.visibility = "hidden";
 					for(let i=0;i<specialElements.length;i++){
@@ -82,12 +88,6 @@ function clickReal(){
 			}
 		}
 	}, 100);
-	if(parseFloat(raveAudio.getAttribute("volume"))<1 && clicks >= 256 && unprocessedClicks>1){
-		let vol = parseFloat(raveAudio.getAttribute("volume"))+0.005;
-		raveAudio.setAttribute("volume",vol);
-		raveAudio.volume = vol;
-		//console.log("Vol = "+vol);
-	}
 }
 
 function clickFake(){

@@ -1,0 +1,22 @@
+html{
+	background-color: #222;
+}
+#flyingBallParent{
+	position: absoloute;
+	margin: auto auto;
+	width: calc(1080px + 5vw);
+}
+#flyingBall{
+	border: none;
+	border-radius: 50%;
+	background-color: #249;
+	width: 5vw;
+	height: 5vw;
+}
+#flyingBall2{
+	border: none;
+	border-radius: 70%;
+	background-color: #f18;
+	width: 5vw;
+	height: 5vw;
+}
