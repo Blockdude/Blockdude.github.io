@@ -67,7 +67,7 @@ function clickReal(){
 				specialElements[i].style.visibility = "hidden";
 			}
 		}else{
-			if(clicks >= 256){
+			if(clicks >= 256 && unprocessedClicks>1){
 				if((new Date().getTime()%960)>480){
 					scorePara.style.visibility = "hidden";
 					for(let i=0;i<specialElements.length;i++){
@@ -82,7 +82,7 @@ function clickReal(){
 			}
 		}
 	}, 100);
-	if(parseFloat(raveAudio.getAttribute("volume"))<1 && clicks >= 256){
+	if(parseFloat(raveAudio.getAttribute("volume"))<1 && clicks >= 256 && unprocessedClicks>1){
 		let vol = parseFloat(raveAudio.getAttribute("volume"))+0.005;
 		raveAudio.setAttribute("volume",vol);
 		raveAudio.volume = vol;
