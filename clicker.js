@@ -62,6 +62,7 @@ function clickReal(){
 		if(unprocessedClicks==0){
 			raveAudio.pause();
 			resetVolume();
+			scorePara.style.visibility = "visible";
 			for(let i=0;i<specialElements.length;i++){
 				specialElements[i].style.visibility = "hidden";
 			}
