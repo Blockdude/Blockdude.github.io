@@ -2,66 +2,95 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <link href="weather.css" rel="stylesheet" type="text/css">
+		 <link rel="icon" href="images/Block_32.png"/>
+        <title>What's the current weather?</title>
+        <link href="styles/default.css" rel="stylesheet" type="text/css">
+        <link href="styles\weather.css" rel="stylesheet" type="text/css">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="lib/anime.min.js"></script>
     </head>
     <body>
-        <h2>Latitude:</h2>
-        <input id="latBox" name="Latitude">
-        <h2>Longitude:</h2>
-        <input id="longBox" name="Longitude" min="-180" max="180">
-        <div id="Output">
-            <!--<img id="image" src="https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F02n.png?1499366020844">
-            -->
-            <!-- <div id="OutputDisplay">
-                <img id="Cloud" src="Cloud.png" alt="Cloud">
-            </div> -->
-            <div class="OutputItem">
-                Current weather for: 
-                <a id="location">Please Input</a>
-            </div>
-            <div class="OutputItem">
-                Overview: 
-                <a id="overview">--</a>
-            </div>
-            <div class="OutputItem">
-                Pressure: 
-                <a id="pressure">--</a>hPa
-            </div>
-            <div class="OutputItem">
-                Humidity: 
-                <a id="humidity">--</a>%
-            </div>
-            <div class="OutputItem">
-                Temperature: 
-                <a id="temp">--</a>C
-            </div>
-            <div class="OutputItem">
-                Temperature Minimum: 
-                <a id="tempMin">--</a>C
-            </div>
-            <div class="OutputItem">
-                Temperature Maximum: 
-                <a id="tempMax">--</a>C
-            </div>
+        <nav class="NavigationHeader">
+            <script>
+                $(function(){
+                    $(".NavigationHeader").load("navbar.html");
+                });
+            </script>
+            Javascript Not Supported On This Browser.<br>Or there was a failure getting the nav-bar.
+        </nav>
+	
+		<div id="organiser">
+			<div class="inputTab" id="latitude">Latitude:
+				<input id="latBox" name="Latitude">
+			</div>
+			<div class="inputTab" id="longitude">Longitude:
+				<input id="longBox" name="Longitude" min="-180" max="180">
+			</div>
+			<div id="OutputData">
+				<div>
+					<button id="submit">Get Weather</button>
+				</div>
+				<div class="OutputItem">
+					Current weather for: 
+					<a id="location">Please Input</a>
+				</div>
+				<div class="OutputItem">
+					Overview: 
+					<a id="overview">--</a>
+				</div>
+				<div class="OutputItem">
+					Pressure: 
+					<a id="pressure">--</a>hPa
+				</div>
+				<div class="OutputItem">
+					Humidity: 
+					<a id="humidity">--</a>%
+				</div>
+				<div class="OutputItem">
+					Temperature: 
+					<a id="temp">--</a>C
+				</div>
+				<div class="OutputItem">
+					Temperature Minimum: 
+					<a id="tempMin">--</a>C
+				</div>
+				<div class="OutputItem">
+					Temperature Maximum: 
+					<a id="tempMax">--</a>C
+				</div>
 
-            <div class="OutputItem">
-                Wind speeds up to <a id="wind">--</a><a id="gust">--</a>mph.
-            </div>
-        </div>
-        <!--<select id="countryInput">
-            <option>Select One</option>
-            <option value="ca">Canada</option>
-            <option value="fi">Finland</option>
-            <option value="fr">France</option>
-            <option value="de">Germany</option>
-            <option value="jp">Japan</option>
-            <option value="ru">Russia</option>
-            <option value="us">United States of America</option>
-            <option value="um">United States of America Minor Isles</option>
-            <option value="gb">United Kingdom</option>
-        </select>
-        <input id="zipBox" type="number" name="Zip Code">-->
-        <button id="submit">Get Weather</button>
+				<div class="OutputItem">
+					Wind speeds up to <a id="wind">--</a><a id="gust">--</a>mph.
+				</div>
+			</div>
+			<div id="visualDiv">
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				<div class="raindrop"></div><div class="raindrop"></div><div class="raindrop"></div>
+				
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+				<div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div>
+			</div>
+		</div>
         <!--<select id="stateInput">
             <option>Select One</option>
             <option value="AL">Alabama</option>

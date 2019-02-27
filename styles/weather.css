@@ -1,0 +1,62 @@
+html{
+	background-color: #48a;
+}
+
+.raindrop{
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	background-color: #48f;
+	visibility: hidden;
+}
+.snowflake{
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	background-color: #fff;
+}
+
+#OutputData{
+	display: flex;
+	flex-direction: row;
+	background-color: #ccc;
+	border: 2.5px solid #000;
+	border-radius: 10px;
+}
+#OutputData>*{
+	border-left: inherit;
+	border-right: inherit;
+	padding: 15px 15px;
+}
+
+#organiser{
+	display: grid;
+	margin: 1vw 1vw;
+	grid-gap: 1vw 1vw;
+	grid-template:
+	'leftBar1 display display display display display display display display display'
+	'leftBar2 display display display display display display display display display'
+	'leftBar3 display display display display display display display display display'
+	'bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom';
+	background-color: #0d0;
+	border-radius: 2vw;
+	padding: 1vw 1vw;
+}
+#organiser>*{
+	grid-area: bottom;
+}
+#organiser>#latitude{
+	grid-area: leftBar1;
+	margin-right: auto;
+	margin-left: 0px;
+}
+#organiser>#longitude{
+	grid-area: leftBar2;
+	margin-right: auto;
+	margin-left: 0px;
+}
+#visualDiv{
+	grid-area: display;
+	background-color: #ccc;
+	overflow: hidden;
+}

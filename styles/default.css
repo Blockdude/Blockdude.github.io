@@ -132,6 +132,18 @@
     font-size: 12px;
 }
 
+/*Misc Other*/
+
+.inputTab{
+	display: flex;
+	background-color: #060;
+	border: 2.5px solid #000;
+	border-radius: 10px;
+	overflow: auto;
+	padding: 10px 10px;
+	margin: auto auto;
+}
+
 /*Basic Differences for tags*/
 
 body {
