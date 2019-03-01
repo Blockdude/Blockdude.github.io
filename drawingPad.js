@@ -1,5 +1,6 @@
 console.log("Hello, I'm clippy, the drawing pad assistant.");
 const drawingSurface = document.getElementById("drawingSurface");
+const toolIndicator = document.getElementById("toolSize");
 
 let pressedKeys = [];
 let mouseKeys = [];
@@ -44,7 +45,7 @@ function scroll(e){
 	const toolIndicator = document.getElementById("toolSize");
 	
 	if(pressedKeys.includes('`')){//Mod and scrollwheel, change tool size
-		drawSize += e.deltaY>0 ? -1 : 1;
+		drawSize += e.deltaY>0 && drawSize>0 ? -1 : 1;
 		//console.log("Tool Size: "+drawSize+"px");
 		toolIndicator.getElementsByTagName("p")[0].innerHTML = drawSize+"px";
 		toolIndicator.style.color = "#fff";
@@ -155,10 +156,11 @@ function flashIndicator(){
 	setTimeout(function(){toolIndicator.style.opacity = (toolIndicator.style.opacity)-1;toolIndicator.style.visibility = "hidden";},1000);
 }
 
-alert("Hold ~ and scroll to change tool size.\nHold 1,2, or 3 and scroll to change color.\nEnjoy!");
+alert("Hold ~ and scroll to change tool size.\nHold 1,2, or 3 and scroll to change color.\nHold Shift while clicking to draw a line from the last point to the cursor.\nEnjoy!");
 drawingSurface.setAttribute("onmousedown","keyDepressed(event); mouseDownSurface(event)");
 drawingSurface.setAttribute("onmousemove","mouseDownSurface(event)");
 drawingSurface.addEventListener('wheel',e => scroll(e));
+toolIndicator.addEventListener('wheel',e => scroll(e));
 drawingSurface.setAttribute("onmouseup","keyUnpressed(event)");
 window.addEventListener('keydown',e => keyDepressed(e));
 window.addEventListener('keyup',e => keyUnpressed(e));
@@ -166,8 +168,8 @@ window.addEventListener('keyup',e => keyUnpressed(e));
 function getModifiers(){
 	let modifiers = 0; //1 = shift, 2 = ctrl, 4 = alt, 8 = `
 	if(pressedKeys.includes("Shift")){modifiers+=1;}
-	if(pressedKeys.includes("Control")){modifiers+=2;}
-	if(pressedKeys.includes("Alt")){modifiers+=4;}
+	//if(pressedKeys.includes("Control")){modifiers+=2;}
+	//if(pressedKeys.includes("Alt")){modifiers+=4;}
 	if(pressedKeys.includes("`")){modifiers+=8;}
 	return modifiers;
 }
