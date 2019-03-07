@@ -5,15 +5,7 @@ var app = express();
 
 app.get('/', function(req, res) {
 
-	https.get('https://localhost:3000/weather.html',(resp)=>{
-		let data = "";
-		resp.on('data',(chunk)=>{
-			data+=chunk;
-		});
-		resp.on('end',() => {
-			//data use here
-		});
-	});
+	res.send('<h1>Heroku world!</h1>');
     //fetch('localhost:3000/weather.html').then(data => res.send(data))
     //.catch(error => {res.send('');})
     //res.send('<h1>Hello World!</h1>');
