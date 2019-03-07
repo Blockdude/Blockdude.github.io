@@ -5,9 +5,9 @@
     "engines": {
         "node": "10.15.2"
     },
-    "main": "web.js",
+    "main": "index.js",
     "scripts": {
-        "start": "node web.js",
+        "start": "node index.js",
         "test": "node test.js"
     },
     "keywords": [
