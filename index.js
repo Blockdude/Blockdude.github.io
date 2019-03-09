@@ -5,12 +5,28 @@ const fs = require('fs');
 const app = express();
 
 app.get('/:file', (req, res, next) => {
-    console.log(`req.params.file: ${req.params.file}`);
-    if(fs.existsSync(req.params.file)){
-        res.sendFile(`${req.params.file}`,{root: __dirname});
-    }else if(fs.existsSync(`${req.params.file}.html`)){
-        res.sendFile(`${req.params.file}.html`,{root: __dirname});
+    console.log(`req.url: ${req.url}`);
+    let file = req.params.file;
+
+    let mime = req.url.lastIndexOf('.') == -1 ? 'text/html' :
+        {'.html':'text/html',
+        '.ico':'image/x-icon',
+        '.jpg':'image/jpeg',
+        '.png':'image/png',
+        '.gif':'image/gif',
+        '.css':'text/css',
+        '.js':'text/javascript'}
+        [req.url.substr(req.url.lastIndexOf('.'))];
+    //res.writeHeader('Content-type',mime);
+    console.log(mime);
+
+    if(fs.existsSync(file)){
+        res.sendFile(`${file}`,{root: __dirname});
+    }else if(fs.existsSync(`${file}.html`)){
+        //res.writeHeader('Content-type','text/html');
+        res.sendFile(`${file}.html`,{root: __dirname});
     }else{
+        //res.writeHead(404, "File Not Found On Server!");
         res.sendFile(`404.html`,{root: __dirname});
     }
 });
