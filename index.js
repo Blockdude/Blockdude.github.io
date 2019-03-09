@@ -1,13 +1,9 @@
 const express = require('express');
-const ejs = require('ejs');
 const port = process.env.PORT || 5000;
 const path = require('path');
 const app = express();
 
-app.use(express.static(''));
-
-app.set('view engine', 'ejs')
-.get('/', (req, res) => res.render('/index.ejs'));
+app.get('/', (req, res) => {res.sendFile('index.html',{root: = __dirname})});
 
 /*app.get('/', function(req, res) {
     console.log(`req = ${req}`);
