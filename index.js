@@ -21,14 +21,17 @@ app.get('*', (req, res, next) => {
     console.log(mime);
 
     if(fs.existsSync(file)){
+        console.log(`Responding with ${file}`);
         res.sendFile(`${file}`,{root: __dirname});
     }else if(fs.existsSync(`${file}.html`)){
-        //res.writeHeader('Content-type','text/html');
+        console.log(`Responding with ${file}.html`);
         res.sendFile(`${file}.html`,{root: __dirname});
     }else if(req.url == "/" || req.url == ""){
+        console.log(`Responding with index.html`);
         res.sendFile(`index.html`,{root: __dirname});
     }else{
         //res.writeHead(404, "File Not Found On Server!");
+        console.log(`Responding with 404.html`);
         res.sendFile(`404.html`,{root: __dirname});
     }
 });
@@ -36,5 +39,5 @@ app.get('*', (req, res, next) => {
 
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}!`);
+    console.log(`Redirecting app listening on port ${port}!`);
 });
