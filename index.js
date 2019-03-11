@@ -6,7 +6,8 @@ const app = express();
 
 app.get('*', (req, res, next) => {
     console.log(`req.url: ${req.url}`);
-    let file = req.params.file;
+    //let file = req.params.file;
+    let file = req.url;
 
     let mime = req.url.lastIndexOf('.') == -1 ? 'text/html' :
         {'.html':'text/html',
