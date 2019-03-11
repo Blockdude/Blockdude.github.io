@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const app = express();
 
-app.get('/:file', (req, res, next) => {
+app.get('*', (req, res, next) => {
     console.log(`req.url: ${req.url}`);
     let file = req.params.file;
 
@@ -25,6 +25,8 @@ app.get('/:file', (req, res, next) => {
     }else if(fs.existsSync(`${file}.html`)){
         //res.writeHeader('Content-type','text/html');
         res.sendFile(`${file}.html`,{root: __dirname});
+    }else if(req.url == "/" || req.url == ""){
+        res.sendFile(`index.html`,{root: __dirname});
     }else{
         //res.writeHead(404, "File Not Found On Server!");
         res.sendFile(`404.html`,{root: __dirname});
