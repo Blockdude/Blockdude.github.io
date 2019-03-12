@@ -21,7 +21,7 @@ app.get('*', (req, res, next) => {
     //res.writeHeader('Content-type',mime);
     console.log(mime);
 
-    res.sendFile(`/images/Block.png`,{root: __dirname});
+    res.sendFile(`/styles/index.css`,{root: __dirname});
 
     /*if(fs.existsSync(file)){
         console.log(`Responding with ${file}`);
