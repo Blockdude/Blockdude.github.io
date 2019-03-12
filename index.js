@@ -21,7 +21,9 @@ app.get('*', (req, res, next) => {
     //res.writeHeader('Content-type',mime);
     console.log(mime);
 
-    if(fs.existsSync(file)){
+    res.sendFile(`images/Block.png`,{root: __dirname});
+
+    /*if(fs.existsSync(file)){
         console.log(`Responding with ${file}`);
         res.sendFile(`${file}`,{root: __dirname});
     }else if(fs.existsSync(`${file}.html`)){
@@ -34,7 +36,7 @@ app.get('*', (req, res, next) => {
         //res.writeHead(404, "File Not Found On Server!");
         console.log(`Responding with 404.html`);
         res.sendFile(`404.html`,{root: __dirname});
-    }
+    }//*/
 });
 
 
