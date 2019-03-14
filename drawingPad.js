@@ -3,6 +3,7 @@ const drawingSurface = document.getElementById("drawingSurface");
 const toolIndicator = document.getElementById("toolSize");
 const sock = io();
 
+sock.emit('connection.drawingPad');
 sock.on('drawingPad.drawBar', data => {
 	let dataParts = data.split('\n');
 	console.log(`Draw Bar data recv: ${data}`);
