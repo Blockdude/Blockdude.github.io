@@ -6,7 +6,7 @@ const app = express();
 
 let drawnScreen = []; //Array of our drawn divs
 
-app.get('/connection.drawingPad', (req,req,next) => {
+app.get('/connection.drawingPad', (req,res,next) => {
     console.log(`A new user connected to the drawingPad room.`);
     res.send("ACK");
 });
