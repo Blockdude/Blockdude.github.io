@@ -18,28 +18,25 @@ io.on('connection.drawingPad', socket => {
     });
 });
 
-io.on('', socket =>{
-
-});
-
 app.get('*', (req, res, next) => {
     console.log(`req.url: ${req.url}`);
     //let file = req.params.file;
     let file = req.url;
 
-    let mime = req.url.lastIndexOf('.') == -1 ? 'text/html' :
-        {'.html':'text/html',
-        '.ico':'image/x-icon',
-        '.jpg':'image/jpeg',
-        '.png':'image/png',
-        '.gif':'image/gif',
-        '.css':'text/css',
-        '.js':'text/javascript'}
-        [req.url.substr(req.url.lastIndexOf('.'))];
-    //res.writeHeader('Content-type',mime);
-    console.log(mime);
-
     if(fs.existsSync(`.${file}`)){
+
+        let mime = req.url.lastIndexOf('.') == -1 ? 'text/html' :
+            {'.html':'text/html',
+            '.ico':'image/x-icon',
+            '.jpg':'image/jpeg',
+            '.png':'image/png',
+            '.gif':'image/gif',
+            '.css':'text/css',
+            '.js':'text/javascript'}
+            [req.url.substr(req.url.lastIndexOf('.'))];
+        //res.writeHeader('Content-type',mime);
+        console.log(mime);
+
         res.sendFile(`${req.url}`,{root: __dirname});
     }
 
