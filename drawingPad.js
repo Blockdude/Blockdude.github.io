@@ -10,16 +10,7 @@ window.onunload = function() {
 		console.log(`Disconnection Response: ${response}`)
 	});
 }
-function interpretDrawBar(data){
-	let dataParts = data.split('\n');
-	console.log(`Draw Bar data recv: ${data}`);
-	drawBar(dataParts[0],dataParts[1],dataParts[2],dataParts[3],dataParts[4],dataParts[5]);
-}
-function interpretDrawDot(data){
-	let dataParts = data.split('\n');
-	console.log(`Draw Dot data recv: ${data}`);
-	drawDot(dataParts[0],dataParts[1],dataParts[2],dataParts[3]);
-}
+
 
 let pressedKeys = [];
 let mouseKeys = [];
