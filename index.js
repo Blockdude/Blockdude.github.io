@@ -39,7 +39,7 @@ app.get('*', (req, res, next) => {
     //res.writeHeader('Content-type',mime);
     console.log(mime);
 
-    if(fs.existsSync(file)){
+    if(fs.existsSync(`.${file}`)){
         res.sendFile(`${req.url}`,{root: __dirname});
     }
 
