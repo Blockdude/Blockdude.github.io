@@ -2,7 +2,7 @@ const express = require('express')();
 const port = process.env.PORT || 5000;
 const path = require('path');
 const fs = require('fs');
-const app = express();
+//const app = express();
 var server = require('http').Server(express)
 var io = require('socket.io')(server);
 
@@ -21,7 +21,7 @@ io.on('connection.drawingPad', socket => {
     });
 });
 
-app.get('*', (req, res, next) => {
+express.get('*', (req, res, next) => {
     console.log(`req.url: ${req.url}`);
     //let file = req.params.file;
     let file = req.url;
@@ -60,7 +60,7 @@ app.get('*', (req, res, next) => {
 });
 
 
-
-app.listen(port, () => {
+/*
+express.listen(port, () => {
     console.log(`Redirecting app listening on port ${port}!`);
 });
