@@ -2,7 +2,25 @@ const express = require('express');
 const port = process.env.PORT || 5000;
 const path = require('path');
 const fs = require('fs');
+const io = require('socket.io')(http);
 const app = express();
+
+io.on('connection.drawingPad', socket => {
+    console.log(`A new user connected to the drawingPad room.`);
+    socket.on('disconnect', () => {
+        console.log(`A user disconencted from the drawingPad room.`);
+    });
+    socket.on('drawingPad.drawBar', data => {
+        io.emit('drawingPad.drawBar',data); //Tell all clients to draw given bar
+    });
+    socket.on('drawingPad.drawDot', data => {
+        io.emit('drawingPad.drawDot',data); //Tell all clients to draw given bar
+    });
+});
+
+io.on('', socket =>{
+
+});
 
 app.get('*', (req, res, next) => {
     console.log(`req.url: ${req.url}`);

@@ -1,6 +1,18 @@
 console.log("Hello, I'm clippy, the drawing pad assistant.");
 const drawingSurface = document.getElementById("drawingSurface");
 const toolIndicator = document.getElementById("toolSize");
+const sock = io();
+
+sock.on('drawingPad.drawBar', data => {
+	let dataParts = data.split('\n');
+	console.log(`Draw Bar data recv: ${data}`);
+	drawBar(dataParts[0],dataParts[1],dataParts[2],dataParts[3],dataParts[4],dataParts[5]);
+});
+sock.on('drawingPad.drawDot', data => {
+	let dataParts = data.split('\n');
+	console.log(`Draw Dot data recv: ${data}`);
+	drawDot(dataParts[0],dataParts[1],dataParts[2],dataParts[3]);
+});
 
 let pressedKeys = [];
 let mouseKeys = [];
@@ -97,13 +109,24 @@ function mouseDownSurface(e){
 		
 		//console.log(modifiers);
 		if((modifiers | 0000) == 0000 && (modifiers & 0000) == 0000){ //Just a click/click+drag
-			drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
+			let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
+			//drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
+			
+			sock.emit('drawingPad.drawDot', `${clickedX}\n${clickedY}\n${hexColor}\n${drawSize}`);
+			
 			//console.log((modifiers | 0000)+" -> single click");
 		}
 		if((modifiers | 0001) == 0001 && (modifiers & 0001) == 0001){ //Draw line from last to new.
-			drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
-			drawBar(clickedX,clickedY,lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
-			drawDot(lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
+			let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
+			//drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
+			//drawBar(clickedX,clickedY,lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
+			//drawDot(lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
+			//Above is depricated, now uses socket.io to send data to server, server sends to all, then is drawn.
+
+			sock.emit('drawingPad.drawBar', `${clickedX}\n${clickedY}\n${lastClickX}\n${lastClickY}\n${hexColor}\n${drawSize}`);
+			sock.emit('drawingPad.drawDot', `${clickedX}\n${clickedY}\n${hexColor}\n${drawSize}`);
+			sock.emit('drawingPad.drawDot', `${clickedX}\n${clickedY}\n${hexColor}\n${drawSize}`);
+
 			//console.log((modifiers | 0001)+" -> drag click");
 		}
 		
