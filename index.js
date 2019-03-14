@@ -1,9 +1,9 @@
-const express = require('express');
+const express = require('express')();
 const port = process.env.PORT || 5000;
 const path = require('path');
 const fs = require('fs');
 const app = express();
-var server = require('http').Server(app)
+var server = require('http').Server(express)
 var io = require('socket.io')(server);
 
 server.listen(port);
