@@ -1,15 +1,21 @@
 console.log("Hello, I'm clippy, the drawing pad assistant.");
 const drawingSurface = document.getElementById("drawingSurface");
 const toolIndicator = document.getElementById("toolSize");
-const sock = io();
 
-sock.emit('connection.drawingPad','Useless string');
-sock.on('drawingPad.drawBar', data => {
+fetch('/connection.drawingPad').then(response => {
+	console.log(`Connection Response: ${response}`);
+});
+window.onunload = function() {
+    fetch(`/disconnect.drawingPad`).then(response => {
+		console.log(`Disconnection Response: ${response}`)
+	});
+}
+function interpretDrawBar(data){
 	let dataParts = data.split('\n');
 	console.log(`Draw Bar data recv: ${data}`);
 	drawBar(dataParts[0],dataParts[1],dataParts[2],dataParts[3],dataParts[4],dataParts[5]);
 });
-sock.on('drawingPad.drawDot', data => {
+function interpretDrawDot(data){
 	let dataParts = data.split('\n');
 	console.log(`Draw Dot data recv: ${data}`);
 	drawDot(dataParts[0],dataParts[1],dataParts[2],dataParts[3]);
@@ -113,7 +119,7 @@ function mouseDownSurface(e){
 			let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
 			//drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			
-			sock.emit('drawingPad.drawDot', `${clickedX}\n${clickedY}\n${hexColor}\n${drawSize}`);
+			fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${hexColor}$drawSize=${drawSize}`);
 			
 			//console.log((modifiers | 0000)+" -> single click");
 		}
@@ -124,9 +130,7 @@ function mouseDownSurface(e){
 			//drawDot(lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			//Above is depricated, now uses socket.io to send data to server, server sends to all, then is drawn.
 
-			sock.emit('drawingPad.drawBar', `${clickedX}\n${clickedY}\n${lastClickX}\n${lastClickY}\n${hexColor}\n${drawSize}`);
-			sock.emit('drawingPad.drawDot', `${clickedX}\n${clickedY}\n${hexColor}\n${drawSize}`);
-			sock.emit('drawingPad.drawDot', `${clickedX}\n${clickedY}\n${hexColor}\n${drawSize}`);
+			fetch(`/drawingPad.drawBar?clickedX=${clickedX}&clickedY=${clickedY}&lastClickX=${lastClickX}&lastClickY=${lastClickY}&hexColor=${hexColor}$drawSize=${drawSize}`);
 
 			//console.log((modifiers | 0001)+" -> drag click");
 		}

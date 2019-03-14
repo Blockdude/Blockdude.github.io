@@ -2,26 +2,32 @@ const express = require('express')();
 const port = process.env.PORT || 5000;
 const path = require('path');
 const fs = require('fs');
-//const app = express();
-var server = require('http').Server(express)
-var io = require('socket.io')(server);
+const app = express();
 
-server.listen(port);
+let drawnScreen = []; //Array of our drawn divs
 
-io.on('connection.drawingPad', socket => {
+app.get('/connection.drawingPad', (req,req,next) => {
     console.log(`A new user connected to the drawingPad room.`);
-    socket.on('disconnect', () => {
-        console.log(`A user disconencted from the drawingPad room.`);
-    });
-    socket.on('drawingPad.drawBar', data => {
-        io.emit('drawingPad.drawBar',data); //Tell all clients to draw given bar
-    });
-    socket.on('drawingPad.drawDot', data => {
-        io.emit('drawingPad.drawDot',data); //Tell all clients to draw given bar
-    });
+    res.send("ACK");
+});
+app.get('/disconnect.drawingPad', (req,res,next) => {
+    console.log(`A user disconencted from the drawingPad room.`);
+    res.send("ACK");
+});
+app.get('/drawingPad.drawBar', (req,res,next) => {
+    console.log(`A user drew a bar`);
+    drawnScreen = drawnScreen + [[req.query.clickedX,req.query.clickedY,req.query.lastClickX,req.query.lastClickY,req.query.hexColor,req.query.drawSize]];
+});
+app.get('/drawingPad.drawDot', (req,res,next) => {
+    console.log(`A user drew a dot`);
+    drawnScreen = drawnScreen + [[req.query.clickedX,req.query.clickedY,req.query.hexColor,req.query.drawSize]];
+});
+app.get('/drawingPad.getItems', (req,res,next) => {
+    console.log(`A user got drawn items`);
+    res.send(drawnScreen);
 });
 
-express.get('*', (req, res, next) => {
+app.get('*', (req, res, next) => {
     console.log(`req.url: ${req.url}`);
     //let file = req.params.file;
     let file = req.url;
@@ -60,7 +66,7 @@ express.get('*', (req, res, next) => {
 });
 
 
-/*
-express.listen(port, () => {
+
+app.listen(port, () => {
     console.log(`Redirecting app listening on port ${port}!`);
 });
