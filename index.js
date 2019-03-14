@@ -3,7 +3,7 @@ const port = process.env.PORT || 5000;
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const io = require('socket.io')(app);
+const io = require('socket.io')();
 
 io.on('connection.drawingPad', socket => {
     console.log(`A new user connected to the drawingPad room.`);
