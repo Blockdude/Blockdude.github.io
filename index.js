@@ -27,7 +27,7 @@ app.get('/drawingPad.getItems', (req,res,next) => {
     res.send(drawnScreen);
 });
 
-app.get('*', (req, res, next) => {
+/*app.get('*', (req, res, next) => {
     console.log(`req.url: ${req.url}`);
     //let file = req.params.file;
     let file = req.url;
@@ -63,7 +63,7 @@ app.get('*', (req, res, next) => {
         console.log(`Responding with 404.html`);
         res.sendFile(`404.html`,{root: __dirname});
     }//*/
-});
+//});
 
 
 
