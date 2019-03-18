@@ -3,11 +3,11 @@ const drawingSurface = document.getElementById("drawingSurface");
 const toolIndicator = document.getElementById("toolSize");
 
 fetch('/connection.drawingPad').then(response => {
-	console.log(`Connection Response: ${response}`);
+	console.log(`Connection Response: ${response.statusText}`);
 });
 window.onunload = function() {
     fetch(`/disconnect.drawingPad`).then(response => {
-		console.log(`Disconnection Response: ${response}`)
+		console.log(`Disconnection Response: ${response.statusText}`)
 	});
 }
 
