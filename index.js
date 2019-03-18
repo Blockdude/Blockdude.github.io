@@ -8,21 +8,25 @@ let drawnScreen = []; //Array of our drawn divs
 
 app.get('/connection.drawingPad*', (req,res,next) => {
     console.log(`A new user connected to the drawingPad room.`);
-    res.send("ACK");
+    res.sendStatus(200);
+    //res.send("ACK");
 });
 app.get('/disconnect.drawingPad*', (req,res,next) => {
     console.log(`A user disconencted from the drawingPad room.`);
-    res.send("ACK");
+    res.sendStatus(200);
+    //res.send("ACK");
 });
 app.get('/drawingPad.drawBar*', (req,res,next) => {
     console.log(`A user drew a bar`);
     drawnScreen = drawnScreen + [[req.query.clickedX,req.query.clickedY,req.query.lastClickX,req.query.lastClickY,req.query.hexColor,req.query.drawSize]];
-    res.send("ACK");
+    res.sendStatus(200);
+    //res.send("ACK");
 });
 app.get('/drawingPad.drawDot*', (req,res,next) => {
     console.log(`A user drew a dot`);
     drawnScreen = drawnScreen + [[req.query.clickedX,req.query.clickedY,req.query.hexColor,req.query.drawSize]];
-    res.send("ACK");
+    res.sendStatus(200);
+    //res.send("ACK");
 });
 app.get('/drawingPad.getItems*', (req,res,next) => {
     console.log(`A user got drawn items`);
