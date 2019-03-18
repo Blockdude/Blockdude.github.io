@@ -110,7 +110,7 @@ function mouseDownSurface(e){
 			let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
 			//drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			
-			fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${hexColor}$drawSize=${drawSize}`);
+			fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${hexColor}&drawSize=${drawSize}`);
 			
 			//console.log((modifiers | 0000)+" -> single click");
 		}
@@ -121,7 +121,7 @@ function mouseDownSurface(e){
 			//drawDot(lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			//Above is depricated, now uses socket.io to send data to server, server sends to all, then is drawn.
 
-			fetch(`/drawingPad.drawBar?clickedX=${clickedX}&clickedY=${clickedY}&lastClickX=${lastClickX}&lastClickY=${lastClickY}&hexColor=${hexColor}$drawSize=${drawSize}`);
+			fetch(`/drawingPad.drawBar?clickedX=${clickedX}&clickedY=${clickedY}&lastClickX=${lastClickX}&lastClickY=${lastClickY}&hexColor=${hexColor}&drawSize=${drawSize}`);
 
 			//console.log((modifiers | 0001)+" -> drag click");
 		}
@@ -195,4 +195,8 @@ function getModifiers(){
 function rgbHex(rgb){ 
   let hex = Number(rgb).toString(16);
   return hex.length < 2 ? "0"+hex : hex;
+}
+function update(){
+	fetch('/drawingPad.getItems')
+	.then(res => {`Got ${res.size} elements`});
 }
