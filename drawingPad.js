@@ -202,11 +202,11 @@ function rgbHex(rgb){
   return hex.length < 2 ? "0"+hex : hex;
 }
 function update(){
-	fetch('/drawingPad.getItems').then(res => {return res.json();})
+	fetch('/drawingPad.getItems?cut='+drawingSurface.childElementCount).then(res => {return res.json();})
 	.then(d => {console.log(d);
 		//const drawingSurface = document.getElementById("drawingSurface");
 		let drawnBits = drawingSurface.childElementCount;
-		for(let i = drawnBits; i < d.divs.length; i = i + 1){
+		for(let i = 0; i < d.divs.length; i = i + 1){
 			let drawData = d.divs[i];
 			if(drawData.length == 4){ //draw dot
 				drawDot(drawData[0],drawData[1],"#"+drawData[2],drawData[3]);
