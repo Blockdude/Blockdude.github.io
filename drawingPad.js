@@ -107,7 +107,7 @@ function mouseDownSurface(e){
 		
 		//console.log(modifiers);
 		if((modifiers | 0000) == 0000 && (modifiers & 0000) == 0000){ //Just a click/click+drag
-			let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
+			//let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
 			//drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			
 			fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${rgbHex(colorRed)}${rgbHex(colorGreen)}${rgbHex(colorBlue)}&drawSize=${drawSize}`)
@@ -116,11 +116,11 @@ function mouseDownSurface(e){
 			//console.log((modifiers | 0000)+" -> single click");
 		}
 		if((modifiers | 0001) == 0001 && (modifiers & 0001) == 0001){ //Draw line from last to new.
-			let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
+			//let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
 			//drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			//drawBar(clickedX,clickedY,lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			//drawDot(lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
-			//Above is depricated, now uses socket.io to send data to server, server sends to all, then is drawn.
+			//Above is depricated, now uses fetch twice.
 
 			fetch(`/drawingPad.drawBar?clickedX=${clickedX}&clickedY=${clickedY}&lastClickX=${lastClickX}&lastClickY=${lastClickY}&hexColor=${rgbHex(colorRed)}${rgbHex(colorGreen)}${rgbHex(colorBlue)}&drawSize=${drawSize}`)
 			.then(update());
