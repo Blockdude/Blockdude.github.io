@@ -206,7 +206,7 @@ function update(){
 	.then(d => {console.log(d);
 		//const drawingSurface = document.getElementById("drawingSurface");
 		let drawnBits = drawingSurface.childElementCount;
-		for(let i = 0; i < d.divs.length; i = i + 1){
+		for(let i = drawnBits; i < d.divs.length; i = i + 1){
 			let drawData = d.divs[i];
 			if(drawData.length == 4){ //draw dot
 				drawDot(drawData[0],drawData[1],"#"+drawData[2],drawData[3]);

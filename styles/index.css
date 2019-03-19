@@ -13,3 +13,24 @@ html {
 p {
     text-align: center;
 }
+
+#finalLinkDiv {
+    display: grid;
+}
+#finalLink {
+    font-family: "Tahoma", Tahoma, serif;
+    font-size: 26px;
+    text-align: center;
+    color: #000;
+    border: 2px solid #fff;
+    background-color: #808080b7;
+    padding: 5px 30px;
+    text-decoration: none;
+    transition: 0.3s;
+    transition-timing-function: ease;
+}
+#finalLink:hover{
+    color: #fff;
+    background-color: #006000b7;
+    border-color: #000;
+}
