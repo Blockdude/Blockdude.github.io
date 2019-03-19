@@ -111,7 +111,8 @@ function mouseDownSurface(e){
 			//drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			
 			fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${rgbHex(colorRed)}${rgbHex(colorGreen)}${rgbHex(colorBlue)}&drawSize=${drawSize}`)
-			.then(update());
+			.then();
+			//.then(update());
 
 			//console.log((modifiers | 0000)+" -> single click");
 		}
@@ -123,7 +124,9 @@ function mouseDownSurface(e){
 			//Above is depricated, now uses fetch twice.
 
 			fetch(`/drawingPad.drawBar?clickedX=${clickedX}&clickedY=${clickedY}&lastClickX=${lastClickX}&lastClickY=${lastClickY}&hexColor=${rgbHex(colorRed)}${rgbHex(colorGreen)}${rgbHex(colorBlue)}&drawSize=${drawSize}`)
-			.then(update());
+			.then(fetch(`/drawingPad.drawDot?clickedX=${lastClickX}&clickedY=${lastClickY}&hexColor=${rgbHex(colorRed)}${rgbHex(colorGreen)}${rgbHex(colorBlue)}&drawSize=${drawSize}`))
+			.then(fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${rgbHex(colorRed)}${rgbHex(colorGreen)}${rgbHex(colorBlue)}&drawSize=${drawSize}`))
+			.then();//.then(update());
 
 			//console.log((modifiers | 0001)+" -> drag click");
 		}
@@ -217,3 +220,5 @@ function update(){
 		//foreach
 	});
 }
+
+window.setInterval(update(), 100);
