@@ -4,7 +4,9 @@ const path = require('path');
 const fs = require('fs');
 const app = express();
 
-let drawJSON = {}; //JSON of our drawn divs and their data
+let drawJSON = {
+    divs: []
+}; //JSON of our drawn divs and their data
 
 app.get('/connection.drawingPad*', (req,res,next) => {
     console.log(`A new user connected to the drawingPad room.`);
@@ -18,13 +20,13 @@ app.get('/disconnect.drawingPad*', (req,res,next) => {
 });
 app.get('/drawingPad.drawBar*', (req,res,next) => {
     console.log(`A user drew a bar`);
-    drawJSON.divs.push(`[${req.query.clickedX},${req.query.clickedY},${req.query.lastClickX},${req.query.lastClickY},${req.query.hexColor},${req.query.drawSize}]`);
+    drawJSON.divs.push([req.query.clickedX,req.query.clickedY,req.query.lastClickX,req.query.lastClickY,req.query.hexColor,req.query.drawSize]);
     res.sendStatus(200);
     //res.send("ACK");
 });
 app.get('/drawingPad.drawDot*', (req,res,next) => {
     console.log(`A user drew a dot`);
-    drawJSON.divs.push(`[${req.query.clickedX},${req.query.clickedY},${req.query.hexColor},${req.query.drawSize}]`);// = drawnScreen + [req.query.clickedX,req.query.clickedY,req.query.hexColor,req.query.drawSize];
+    drawJSON.divs.push([req.query.clickedX,req.query.clickedY,req.query.hexColor,req.query.drawSize]);// = drawnScreen + [req.query.clickedX,req.query.clickedY,req.query.hexColor,req.query.drawSize];
     res.sendStatus(200);
     //res.send("ACK");
 });
