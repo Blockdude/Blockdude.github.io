@@ -110,7 +110,7 @@ function mouseDownSurface(e){
 			let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
 			//drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			
-			fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${hexColor}&drawSize=${drawSize}`)
+			fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${rgbHex(colorRed)}${rgbHex(colorGreen)}${rgbHex(colorBlue)}&drawSize=${drawSize}`)
 			.then(update());
 
 			//console.log((modifiers | 0000)+" -> single click");
@@ -122,7 +122,7 @@ function mouseDownSurface(e){
 			//drawDot(lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			//Above is depricated, now uses socket.io to send data to server, server sends to all, then is drawn.
 
-			fetch(`/drawingPad.drawBar?clickedX=${clickedX}&clickedY=${clickedY}&lastClickX=${lastClickX}&lastClickY=${lastClickY}&hexColor=${hexColor}&drawSize=${drawSize}`)
+			fetch(`/drawingPad.drawBar?clickedX=${clickedX}&clickedY=${clickedY}&lastClickX=${lastClickX}&lastClickY=${lastClickY}&hexColor=${rgbHex(colorRed)}${rgbHex(colorGreen)}${rgbHex(colorBlue)}&drawSize=${drawSize}`)
 			.then(update());
 
 			//console.log((modifiers | 0001)+" -> drag click");
@@ -200,7 +200,7 @@ function rgbHex(rgb){
 }
 function update(){
 	fetch('/drawingPad.getItems').then(res => {return res.json();})
-	.then(j => {console.log(j);
+	.then(d => {console.log(d);
 		//const drawingSurface = document.getElementById("drawingSurface");
 		let drawnBits = drawingSurface.childElementCount;
 		//foreach
