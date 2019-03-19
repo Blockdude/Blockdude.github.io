@@ -110,8 +110,9 @@ function mouseDownSurface(e){
 			let hexColor = "#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue);
 			//drawDot(clickedX,clickedY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			
-			fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${hexColor}&drawSize=${drawSize}`);
-			
+			fetch(`/drawingPad.drawDot?clickedX=${clickedX}&clickedY=${clickedY}&hexColor=${hexColor}&drawSize=${drawSize}`)
+			.then(update());
+
 			//console.log((modifiers | 0000)+" -> single click");
 		}
 		if((modifiers | 0001) == 0001 && (modifiers & 0001) == 0001){ //Draw line from last to new.
@@ -121,7 +122,8 @@ function mouseDownSurface(e){
 			//drawDot(lastClickX,lastClickY,"#"+rgbHex(colorRed)+rgbHex(colorGreen)+rgbHex(colorBlue),drawSize);
 			//Above is depricated, now uses socket.io to send data to server, server sends to all, then is drawn.
 
-			fetch(`/drawingPad.drawBar?clickedX=${clickedX}&clickedY=${clickedY}&lastClickX=${lastClickX}&lastClickY=${lastClickY}&hexColor=${hexColor}&drawSize=${drawSize}`);
+			fetch(`/drawingPad.drawBar?clickedX=${clickedX}&clickedY=${clickedY}&lastClickX=${lastClickX}&lastClickY=${lastClickY}&hexColor=${hexColor}&drawSize=${drawSize}`)
+			.then(update());
 
 			//console.log((modifiers | 0001)+" -> drag click");
 		}
