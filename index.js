@@ -30,7 +30,7 @@ app.get('/drawingPad.drawDot*', (req,res,next) => {
 });
 app.get('/drawingPad.getItems*', (req,res,next) => {
     console.log(`A user got drawn items`);
-    res.send(drawnScreen);
+    res.send(JSON.stringify(drawnScreen));
 });
 
 app.get('*', (req, res, next) => {

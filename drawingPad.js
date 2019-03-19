@@ -200,7 +200,7 @@ function rgbHex(rgb){
 }
 function update(){
 	fetch('/drawingPad.getItems')
-	.then(res => {console.log(`Got ${res} elements`);
+	.then(res => {console.log(res);
 		//foreach
 	});
 }
