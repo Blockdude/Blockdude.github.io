@@ -199,8 +199,9 @@ function rgbHex(rgb){
   return hex.length < 2 ? "0"+hex : hex;
 }
 function update(){
-	fetch('/drawingPad.getItems')
-	.then(res => {console.log(res);
+	fetch('/drawingPad.getItems').then(data => data.json)
+	.then(j => {console.log(j);
+		let drawnBits = drawingSufrace.childElementCount;
 		//foreach
 	});
 }
