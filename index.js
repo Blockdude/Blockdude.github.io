@@ -35,8 +35,8 @@ app.get('/drawingPad.getItems*', (req,res,next) => {
     let editedDrawJSON = drawJSON;
     let e = req.query.cut;
     editedDrawJSON.splice(0,e); //Remove the first e elements because user already has them.
-    console.log(drawJSON);
-    res.send(JSON.stringify(drawJSON));
+    console.log(editedDrawJSON);
+    res.send(JSON.stringify(editedDrawJSON));
 });
 
 app.get('*', (req, res, next) => {
