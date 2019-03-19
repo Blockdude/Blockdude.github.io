@@ -199,9 +199,10 @@ function rgbHex(rgb){
   return hex.length < 2 ? "0"+hex : hex;
 }
 function update(){
-	fetch('/drawingPad.getItems').then(data => data.json)
+	fetch('/drawingPad.getItems').then(res => {return res.json();})
 	.then(j => {console.log(j);
-		let drawnBits = drawingSufrace.childElementCount;
+		//const drawingSurface = document.getElementById("drawingSurface");
+		let drawnBits = drawingSurface.childElementCount;
 		//foreach
 	});
 }
