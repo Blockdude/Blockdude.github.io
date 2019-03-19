@@ -203,6 +203,15 @@ function update(){
 	.then(d => {console.log(d);
 		//const drawingSurface = document.getElementById("drawingSurface");
 		let drawnBits = drawingSurface.childElementCount;
+		for(let i = drawnBits; i < d.divs.length; i = i + 1){
+			let drawData = d.divs[i];
+			if(drawData.length == 4){ //draw dot
+				drawDot(drawData[0],drawData[1],drawData[2],drawData[3]);
+			}
+			if(drawData.length == 6){ //draw bar
+				drawBar(drawData[0],drawData[1],drawData[2],drawData[3],drawData[4],drawData[5]);
+			}
+		}
 		//foreach
 	});
 }
